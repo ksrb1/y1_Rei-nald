@@ -1,55 +1,54 @@
-    string fullname{};
-    int age{};
-    int userInput1{};
-    int userInput2{};
-    int average{};
+    
+int age{};
+string fullname{};
+int userInput1{};
+int userInput2{};
+int average{};
 
-    cout << "Enter Fullname: ";
-    cin >> fullname;
-    cout << "Enter Age: ";
-    cin >> age;
 
-    cout << "Enter first product's price: ";
+cout << "Enter Fullname: ";
+cin >> fullname;
+cout << "Enter Age: ";
+cin >> age;
+
+cout << "Enter first product's price: ";
+cin >> userInput1;
+while (cin.fail() || (userInput1 > 100) || (userInput1 < 0)) {
+    cout << "Incorrect input, please enter the first products price again:";
+    cin.clear();
+    cin.ignore(1000, '\n');
     cin >> userInput1;
-    while (cin.fail() || (userInput1 > 100) || (userInput1 < 0)) {
-        cout << "Incorrect input, please enter the first products price again:";
-        cin.clear();
-        cin.ignore(1000, '\n');
-        cin >> userInput1;
-    }
-    cout << "Enter second product's price: ";
+}
+cout << "Enter second product's price: ";
+cin >> userInput2;
+while (cin.fail() || (userInput2 > 100) || (userInput2 < 0)) {
+    cout << "Incorrect input, please enter the second products price again:";
+    cin.clear();
+    cin.ignore(1000, '\n');
     cin >> userInput2;
-    while (cin.fail() || (userInput2 > 100) || (userInput2 < 0)) {
-        cout << "Incorrect input, please enter the second products price again:";
-        cin.clear();
-        cin.ignore(1000, '\n');
-        cin >> userInput2;
-    }
+}
 
-    average = (userInput1 + userInput2) / 2;
 
-    switch (average / 10) {
-      case 0: {
-          cout << "You practically didn't buy anything at all.";
-          break;
-      }
-      case 1:
-      case 2:
-      case 3:
-      case 4: {
-          cout << "It seems like you didn't spend much.";
-          break;
-      }
-      case 5:
-      case 6: {
-          cout << "Medium spending and saving, well done";
-          break;
-      }
-      case 7:
-      case 8:
-      case 9:
-      case 10: {
-          cout << "You're spending quite a lot without saving anything";
-          break;
-      }
+average = (userInput1 + userInput2) / 2;
+
+if ((average >= 0) && (average <= 9)) {
+    cout << "You practically didn't buy anything";
+}
+else if ((average >= 10) && (average <= 49)) {
+    cout << "It seems like you didn't spend much";
+}
+
+switch (average / 10) {
+    case 5:
+    case 6: {
+        cout << "Medium spending and saving, well done";
+        break;
     }
+    case 7:
+    case 8:
+    case 9:
+    case 10: {
+        cout << "You're spending quite a lot without saving anything";
+        break;
+    }
+}
